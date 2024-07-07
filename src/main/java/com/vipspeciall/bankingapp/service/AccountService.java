@@ -28,15 +28,15 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
-    public List<Account> getAccountsByUser(UUID userId) {
+    public List<Account> getAccountsByUser(Long userId) {
         return accountRepository.findByUserId(userId);
     }
 
-    public Account getAccountById(UUID accountId) {
+    public Account getAccountById(Long accountId) {
         return accountRepository.findById(accountId).orElse(null);
     }
 
-    public void deleteAccount(UUID accountId) {
+    public void deleteAccount(Long accountId) {
         accountRepository.deleteById(accountId);
     }
 }

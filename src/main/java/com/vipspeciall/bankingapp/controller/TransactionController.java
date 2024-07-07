@@ -22,7 +22,7 @@ public class TransactionController {
     private AccountService accountService;
 
     @PostMapping("/transfer")
-    public Transaction transfer(@RequestParam UUID fromAccountId, @RequestParam UUID toAccountId,
+    public Transaction transfer(@RequestParam Long fromAccountId, @RequestParam Long toAccountId,
                                 @RequestParam BigDecimal amount) {
         Account from = accountService.getAccountById(fromAccountId);
         Account to = accountService.getAccountById(toAccountId);
@@ -30,7 +30,7 @@ public class TransactionController {
     }
 
     @GetMapping("/account/{accountId}")
-    public List<Transaction> getTransactions(@PathVariable UUID accountId) {
+    public List<Transaction> getTransactions(@PathVariable Long accountId) {
         return transactionService.getTransactionsByAccount(accountId);
     }
 }

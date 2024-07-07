@@ -28,7 +28,7 @@ public class TransactionService {
         return transactionRepository.save(transaction);
     }
 
-    public List<Transaction> getTransactionsByAccount(UUID accountId) {
+    public List<Transaction> getTransactionsByAccount(Long accountId) {
         return transactionRepository.findByFromIdOrToId(accountId, accountId);
     }
 }
